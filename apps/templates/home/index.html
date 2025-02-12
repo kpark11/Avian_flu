@@ -466,35 +466,75 @@
 	var bar_state;
 	var line_date;
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/map_data', false);
-	request.send(null);
-	data_map = JSON.parse(request.responseText);
+	let requestInProgress = false;
+
+	function sendRequest(url) {
+	  if (requestInProgress) {
+		console.log("Previous request is still in progress.");
+		return;
+	  }
+
+	  requestInProgress = true;
+
+	  const xhr = new XMLHttpRequest();
+	  xhr.open('GET', url);
+
+	  xhr.onload = function() {
+		requestInProgress = false;
+		if (xhr.status >= 200 && xhr.status < 300) {
+		  console.log('Request successful:', xhr.response);
+		} else {
+		  console.error('Request failed:', xhr.status, xhr.statusText);
+		}
+	  };
+
+	  xhr.onerror = function() {
+		requestInProgress = false;
+		console.error('Request error');
+	  };
+
+	  xhr.send(null);
+	  
+	  return JSON.parse(xhr.responseText);
+	};
+
+	// Example usage:
+	data_map = sendRequest('/map_data');
+	data_avian = sendRequest('map_avianflu_data');
+	data_states = sendRequest('/us_data');
+	bar_state = sendRequest('state_num');
+	line_date = sendRequest('/time_num');
+	state_code = sendRequest('state_code');
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/map_avianflu_data', false);
-	request.send(null);
-	data_avian = JSON.parse(request.responseText);
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/map_data', false); -->
+	<!-- request.send(null); -->
+	<!-- data_map = JSON.parse(request.responseText); -->
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/us_data', false);
-	request.send(null);
-	data_states = JSON.parse(request.responseText);
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/map_avianflu_data', false); -->
+	<!-- request.send(null); -->
+	<!-- data_avian = JSON.parse(request.responseText); -->
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/state_num', false);
-	request.send(null);
-	bar_state = JSON.parse(request.responseText);
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/us_data', false); -->
+	<!-- request.send(null); -->
+	<!-- data_states = JSON.parse(request.responseText); -->
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/time_num', false);
-	request.send(null);
-	line_date = JSON.parse(request.responseText);
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/state_num', false); -->
+	<!-- request.send(null); -->
+	<!-- bar_state = JSON.parse(request.responseText); -->
 	
-	var request = new XMLHttpRequest();
-	request.open("GET", '/state_code', false);
-	request.send(null);
-	state_code = JSON.parse(request.responseText);
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/time_num', false); -->
+	<!-- request.send(null); -->
+	<!-- line_date = JSON.parse(request.responseText); -->
+	
+	<!-- var request = new XMLHttpRequest(); -->
+	<!-- request.open("GET", '/state_code', false); -->
+	<!-- request.send(null); -->
+	<!-- state_code = JSON.parse(request.responseText); -->
 	
 	<!-- console.log('data_map'); -->
 	<!-- console.log(data_map); -->
