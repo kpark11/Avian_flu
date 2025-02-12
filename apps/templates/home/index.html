@@ -466,8 +466,9 @@
 	var bar_state;
 	var line_date;
 	
+	
+	
 	let requestInProgress = false;
-
 	function sendRequest(url) {
 	  if (requestInProgress) {
 		console.log("Previous request is still in progress.");
@@ -495,10 +496,10 @@
 
 	  xhr.send(null);
 	  
-	  return JSON.parse(xhr.responseText);
+	  return JSON.parse(xhr.response);
 	};
 
-	// Example usage:
+
 	data_map = sendRequest('/map_data');
 	data_avian = sendRequest('/map_avianflu_data');
 	data_states = sendRequest('/us_data');
