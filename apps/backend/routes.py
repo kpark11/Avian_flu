@@ -15,7 +15,7 @@ import os, json
 @login_required
 def map_data():
     try: 
-        SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+        SITE_ROOT = os.path.dirname(__file__)
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "counties-fips.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
@@ -27,7 +27,7 @@ def map_data():
 @login_required
 def us_data():
     try: 
-        SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+        SITE_ROOT = os.path.dirname(__file__)
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "us-states.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
@@ -56,7 +56,7 @@ def all_avianflu_data():
 @login_required
 def state_code():
     try: 
-        SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+        SITE_ROOT = os.path.dirname(__file__)
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
