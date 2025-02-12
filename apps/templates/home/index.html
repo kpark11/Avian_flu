@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 ">Total flock sizes, types, occurrence at each counties and states</h6>
+              <h6 class="mb-0 ">Total flock size, types of outbreak, occurrences at each counties and states</h6>
               <p class="text-sm ">Choropleth Map</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 ">Total flock sizes at each states</h6>
+              <h6 class="mb-0 ">Total flock sizes at each states (Occurrence also included)</h6>
               <p class="text-sm ">Bar Graph</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
@@ -59,7 +59,7 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 "> Total flock sizes trend </h6>
+              <h6 class="mb-0 "> Time trend of total flock sizes </h6>
               <p class="text-sm "> Line Graph </p>
               <hr class="dark horizontal">
               <div class="d-flex ">
@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 ">Occurrence</h6>
+              <h6 class="mb-0 ">Time trend of occurrences</h6>
               <p class="text-sm ">Line Graph</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
@@ -600,7 +600,7 @@
 	const dataSets = {
         labels: bar_state.map(function(x) {return x.State}),
         datasets: [{
-          label: "Flock Size",
+          label: "Total flock Size",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
@@ -611,7 +611,7 @@
 		  hidden: false,
         },
 		{
-          label: "Occurrence",
+          label: "Number of occurrences",
           data: bar_state.map(function(x) {return x['Occurrence']}),
 		  hidden: true,
         },
