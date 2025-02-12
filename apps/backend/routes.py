@@ -42,7 +42,7 @@ def state_code():
     try: 
         SITE_ROOT = os.path.dirname(__file__)
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
-        data = json.load(open(json_url))
+        data = make_response(json.load(open(json_url)), 200)
         return data
     except Exception:
         print('The map data does not exist')
