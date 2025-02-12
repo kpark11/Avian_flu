@@ -16,3 +16,4 @@ Flask-Minify==0.37
 #flask_mysqldb
 psycopg2==2.9.10
 pandas==2.2.2
+requests==2.31.0

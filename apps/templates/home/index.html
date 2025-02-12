@@ -482,11 +482,6 @@
 	data_states = JSON.parse(request.responseText);
 	
 	var request = new XMLHttpRequest();
-	request.open("GET", '/state_code', false);
-	request.send(null);
-	state_code = JSON.parse(request.responseText);
-	
-	var request = new XMLHttpRequest();
 	request.open("GET", '/state_num', false);
 	request.send(null);
 	bar_state = JSON.parse(request.responseText);
@@ -495,6 +490,11 @@
 	request.open("GET", '/time_num', false);
 	request.send(null);
 	line_date = JSON.parse(request.responseText);
+	
+	var request = new XMLHttpRequest();
+	request.open("GET", '/state_code', false);
+	request.send(null);
+	state_code = JSON.parse(request.responseText);
 	
 	<!-- console.log('data_map'); -->
 	<!-- console.log(data_map); -->
