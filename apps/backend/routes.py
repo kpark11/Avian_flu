@@ -19,9 +19,9 @@ def map_data():
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "counties-fips.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
-    except Exception as e:
+    except Exception:
         print('The map data does not exist')
-        return e
+        return []
 
 @blueprint.route('/us_data', methods=['GET'])
 @login_required
@@ -31,9 +31,21 @@ def us_data():
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "us-states.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
-    except Exception as e:
+    except Exception:
         print('The map data does not exist')
-        return e
+        return []
+
+@blueprint.route('/state_code', methods=['GET'])
+@login_required
+def state_code():
+    try: 
+        SITE_ROOT = os.path.dirname(__file__)
+        json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
+        data = make_response(json.load(open(json_url)), 200)
+        return data
+    except Exception:
+        print('The map data does not exist')
+        return []
 
 @blueprint.route('/all_avianflu_data', methods=['GET'])
 @login_required
@@ -50,18 +62,6 @@ def all_avianflu_data():
         return make_response(df.to_json(orient="records"), 200)
     except Exception as e:
         print('The avian flu data does not exist')
-        return e
-    
-@blueprint.route('/state_code', methods=['GET'])
-@login_required
-def state_code():
-    try: 
-        SITE_ROOT = os.path.dirname(__file__)
-        json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
-        data = make_response(json.load(open(json_url)), 200)
-        return data
-    except Exception as e:
-        print('The map data does not exist')
         return e
 
 @blueprint.route('/map_avianflu_data', methods=['GET'])
