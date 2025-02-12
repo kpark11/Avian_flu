@@ -10,6 +10,7 @@ from flask_login import login_required
 from apps.backend.models import Avian_flu
 import pandas as pd
 import os, json
+import requests
 
 @blueprint.route('/map_data', methods=['GET'])
 @login_required
@@ -41,7 +42,7 @@ def state_code():
     try: 
         SITE_ROOT = os.path.dirname(__file__)
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
-        data = make_response(json.load(open(json_url)), 200)
+        data = json.load(open(json_url))
         return data
     except Exception:
         print('The map data does not exist')
