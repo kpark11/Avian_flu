@@ -10,7 +10,6 @@ from flask_login import login_required
 from apps.backend.models import Avian_flu
 import pandas as pd
 import os, json
-import requests
 
 @blueprint.route('/map_data', methods=['GET'])
 @login_required
@@ -20,9 +19,9 @@ def map_data():
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "counties-fips.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
-    except Exception:
+    except Exception as e:
         print('The map data does not exist')
-        return []
+        return e
 
 @blueprint.route('/us_data', methods=['GET'])
 @login_required
@@ -32,9 +31,9 @@ def us_data():
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "us-states.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
-    except Exception:
+    except Exception as e:
         print('The map data does not exist')
-        return []
+        return e
 
 @blueprint.route('/state_code', methods=['GET'])
 @login_required
@@ -44,9 +43,9 @@ def state_code():
         json_url = os.path.join(SITE_ROOT, "../static/assets/data", "states-array.json")
         data = make_response(json.load(open(json_url)), 200)
         return data
-    except Exception:
+    except Exception as e:
         print('The map data does not exist')
-        return []
+        return e
 
 @blueprint.route('/all_avianflu_data', methods=['GET'])
 @login_required

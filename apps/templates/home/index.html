@@ -505,7 +505,7 @@
 	data_states = sendRequest('/us_data');
 	bar_state = sendRequest('/state_num');
 	line_date = sendRequest('/time_num');
-	state_code = sendRequest('/state_code');
+	<!-- state_code = sendRequest('/state_code'); -->
 	
 	<!-- var request = new XMLHttpRequest(); -->
 	<!-- request.open("GET", '/map_data', false); -->
@@ -572,13 +572,13 @@
 	};
 	
 	<!-- Getting the state abbreviation  -->
-	for (let i = 0; i < data_avian.length; i++) {
-		for (let ii = 0; ii < state_code.length; ii++) {			
-			if (data_avian[i].State == state_code[ii].name) {
-				data_avian[i]['State_Abbre'] = state_code[ii].code
-			} else {continue};
-		}
-	};
+	<!-- for (let i = 0; i < data_avian.length; i++) { -->
+		<!-- for (let ii = 0; ii < state_code.length; ii++) {			 -->
+			<!-- if (data_avian[i].State == state_code[ii].name) { -->
+				<!-- data_avian[i]['State_Abbre'] = state_code[ii].code -->
+			<!-- } else {continue}; -->
+		<!-- } -->
+	<!-- }; -->
 	
 	
 	<!-- This is the choropleth map -->
