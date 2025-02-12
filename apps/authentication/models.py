@@ -5,9 +5,7 @@ Created on Mon Feb 10 14:25:23 2025
 @author: Kiman Park, Ph.D.
 """
 from flask_login import UserMixin
-
 from apps import db, login_manager
-
 from apps.authentication.util import hash_pass
 
 class Users(db.Model, UserMixin):

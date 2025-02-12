@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv('.env',override=True)
 
 # WARNING: Don't run with debug turned on in production!
-DEBUG = (os.getenv('DEBUG', 'False') == 'True')
+DEBUG = (os.getenv('DEBUG', 'True') == 'True')
 
 # The configuration
 get_config_mode = 'Debug' if DEBUG else 'Production'
