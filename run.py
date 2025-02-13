@@ -41,4 +41,4 @@ if DEBUG:
     app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
     app.logger.info('ASSETS_ROOT      = ' + app_config.ASSETS_ROOT )
 
-app.run(host='0.0.0.0',port=9000, debug=DEBUG)
+app.run(host='0.0.0.0',port=9000, debug=True)
