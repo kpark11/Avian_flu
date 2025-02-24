@@ -6034,6 +6034,9 @@ textarea.form-control-lg {
 
 .min-vh-100 {
   min-height: 100vh !important; }
+  
+.min-vh-110 {
+  min-height: 110vh !important; }
 
 .flex-fill {
   flex: 1 1 auto !important; }
