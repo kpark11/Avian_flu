@@ -33,3 +33,4 @@ apps/static/assets/.temp
 
 .env
 refresh.sh
+requirements2.txt
